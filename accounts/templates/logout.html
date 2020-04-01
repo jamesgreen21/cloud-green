@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h5 class="">Logout</h5>
+
+<!--Log back in link-->
+<div class="row">
+    <div class="col s10 offset-s1">
+        <h2>You have been logged out</h2>
+        <div class="border-top pt-3">
+            <a class="" href="{% url 'accounts:login' %}">Log Back In</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
