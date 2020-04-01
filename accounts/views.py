@@ -14,10 +14,11 @@ def register(request):
     Returns a view that renders the register page and form
     """
     if request.method == 'POST':
-        user_form = UserRegisterForm(request.POST, instance=request.user)
-        if user_form.is_valid() and profile_form.is_valid():
+        user_form = UserRegisterForm(request.POST)
+        if user_form.is_valid():
             user_form.save()
             messages.success(request, 'Registration complete. Let the fun begin!')
+            return redirect('main:index')
     else:
         user_form = UserRegisterForm()
 
@@ -39,8 +40,6 @@ def profile(request):
         if user_form.is_valid():
             user_form.save()
             messages.success(request, 'Your profile has been successfully updated.')
-            return redirect('accounts:user')
-
     else:
         user_form = UserUpdateForm(instance=request.user)
 
