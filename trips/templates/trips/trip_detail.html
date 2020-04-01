@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ trip.title }}</h1>
+<h3>Trip Description</h3>
+<p>{{ trip.location.name }}</p>
+<p>{{ trip.pub_date }}</p>
+
+<h2>Add to favourites</h2>
+
+<form action="{% url 'trips:star' trip.id %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" name="star" id="star" value="Star Trip">
+    {% if trip.star %}
+        <label for="star">Starred</label>
+    {% endif %}
+</form>
+
+<a href="{% url 'trips:index' %}">Go Back</a>
+
+{% endblock content %}

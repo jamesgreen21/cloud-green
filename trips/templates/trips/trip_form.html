@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load materializecss %}
+{% block content %}
+
+<h1>{{ trip.title }}</h1>
+<h3>Trip Description</h3>
+<p>{{ trip.location.name }}</p>
+<p>{{ trip.pub_date }}</p>
+
+<h2>Add to favourites</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form|materializecss }}
+    <input type="submit" name="edit" id="edit" value="Update">
+</form>
+
+<a href="{% url 'trips:index' %}">Go Back</a>
+
+{% endblock content %}

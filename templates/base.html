@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}" type="text/css"/>
+
+    <title>{{ title }}</title>
+</head>
+<body>
+<!--Navbar-->
+<nav>
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Green</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="{% url 'main:index' %}" class="tooltipped" data-position="bottom" data-tooltip="Home">
+                <i class="material-icons">home</i>
+            </a></li>
+            <li><a href="{% url 'trips:index' %}" class="tooltipped" data-position="bottom" data-tooltip="Trips">
+                <i class="material-icons">local_airport</i>
+            </a></li>
+            <li><a href="#" class="tooltipped" data-position="bottom" data-tooltip="Food">
+                <i class="material-icons">restaurant</i>
+            </a></li>
+        </ul>
+    </div>
+</nav>
+<!--Block Content-->
+<div class="container-fluid">
+    {% block content %}{% endblock %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<!--Block JS-->
+{% block javascript %}{% endblock javascript %}
+
+</body>
+</html>
+
+
